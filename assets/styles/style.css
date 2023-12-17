@@ -8,6 +8,11 @@ body {
     & main {
         max-width: 50rem;
         margin: 0 auto;
+
+        & header {
+            margin-top: 3rem;
+            margin-bottom: 6rem;
+        }
     }
 
     & h1,
@@ -24,15 +29,54 @@ body {
     & ul,
     ol {
         margin: 0;
+        padding-left: 1.5rem;
+
+        & li {
+            margin: 0.5rem 0;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 
     & ul {
         padding: 0;
         list-style: none;
+
+        & li {
+            display: flex;
+            gap: 0.25rem;
+        }
     }
 
-    & .cocktail img {
-        width: 11rem;
+    & ol {
+        & li {
+            padding-left: 1ch;
+
+            &::marker {
+                font-size: 1rem;
+                font-variant-numeric: lining-nums;
+                content: counter(list-item);
+                font-weight: 600;
+            }
+        }
+    }
+
+    & .cocktail {
+        & img {
+            width: 11rem;
+        }
+
+        & .measure {
+            font-variant-numeric: diagonal-fractions;
+            display: inline-block;
+            min-width: 1.75rem;
+        }
     }
 }
 
@@ -61,6 +105,7 @@ body {
         }
         & h2 {
             grid-area: heading;
+            margin: 0 0 1.25rem;
         }
         & .details {
             grid-area: details;
@@ -87,6 +132,11 @@ body {
 
             & ol {
                 grid-area: instructions;
+            }
+
+            & ul,
+            ol {
+                margin: 0.125rem 0;
             }
         }
     }
@@ -115,4 +165,12 @@ body {
     font-weight: 400;
     font-display: swap;
     src: url("/assets/fonts/zilla-slab/ZillaSlab-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Zilla Slab";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("/assets/fonts/zilla-slab/ZillaSlab-SemiBold.woff2") format("woff2");
 }
