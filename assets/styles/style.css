@@ -1,0 +1,118 @@
+body {
+    background: url("/assets/img/background.png");
+    background-attachment: fixed;
+    font-family: "Zilla Slab", sans-serif;
+    font-size: 1.125rem;
+    padding: 0 1.5rem;
+
+    & main {
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+
+    & h1,
+    h2 {
+        text-align: center;
+    }
+
+    & h2 {
+        font-family: "Young Serif", serif;
+        text-transform: uppercase;
+        font-size: 2rem;
+    }
+
+    & ul,
+    ol {
+        margin: 0;
+    }
+
+    & ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    & .cocktail img {
+        width: 11rem;
+    }
+}
+
+@media screen and (max-width: 37.4375rem) {
+    .cocktail {
+        & img {
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (min-width: 37.5rem) {
+    .cocktail {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 200px 1fr;
+        grid-template-areas:
+            "image heading"
+            "image details";
+        grid-column-gap: 2.5rem;
+
+        & img {
+            grid-area: image;
+            align-self: center;
+            justify-self: center;
+        }
+        & h2 {
+            grid-area: heading;
+        }
+        & .details {
+            grid-area: details;
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: 1fr 2px 1fr;
+            grid-template-areas: "ingredients divider instructions";
+            grid-column-gap: 5%;
+
+            & ul {
+                grid-area: ingredients;
+            }
+
+            & .divider {
+                grid-area: divider;
+                border-style: dotted;
+                border-color: #000000;
+                border-image-source: url("/assets/img/divider.svg");
+                border-image-slice: 0% 100%;
+                border-image-repeat: round;
+                border-width: 0 0 0 3px;
+                height: 105%;
+            }
+
+            & ol {
+                grid-area: instructions;
+            }
+        }
+    }
+}
+
+/* ### FONTS ### */
+@font-face {
+    font-family: "Young Serif";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/assets/fonts/young/YoungSerif-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Zilla Slab";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/assets/fonts/zilla-slab/ZillaSlab-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Zilla Slab";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/assets/fonts/zilla-slab/ZillaSlab-Italic.woff2") format("woff2");
+}
