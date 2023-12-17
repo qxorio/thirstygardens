@@ -24,6 +24,7 @@ body {
         font-family: "Young Serif", serif;
         text-transform: uppercase;
         font-size: 2rem;
+        font-weight: normal;
     }
 
     & ul,
