@@ -30,7 +30,7 @@ body {
     & ul,
     ol {
         margin: 0;
-        padding-left: 1.5rem;
+        padding-left: 0.65rem;
 
         & li {
             margin: 0.5rem 0;
@@ -62,7 +62,7 @@ body {
             &::marker {
                 font-size: 1rem;
                 font-variant-numeric: lining-nums;
-                content: counter(list-item);
+                content: "✶";
                 font-weight: 600;
             }
         }
@@ -85,6 +85,21 @@ body {
     .cocktail {
         & img {
             text-align: center;
+        }
+
+        & .details {
+            width: 75%;
+            margin: 0 auto;
+
+            & .divider {
+                border-style: dotted;
+                border-color: #000000;
+                border-image-source: url("/assets/img/divider.svg");
+                border-image-slice: 0% 100%;
+                border-image-repeat: round;
+                border-width: 0 0 0 3px;
+                height: 105%;
+            }
         }
     }
 }
