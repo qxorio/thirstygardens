@@ -30,7 +30,7 @@ body {
     & ul,
     ol {
         margin: 0;
-        padding-left: 0.65rem;
+        padding-left: 0.75rem;
         list-style-type: none;
 
         & li {
@@ -58,12 +58,16 @@ body {
     & ol {
         & li {
             padding-left: 1ch;
+            position: relative;
 
-            &::marker {
+            &::before {
                 font-size: 1rem;
                 font-variant-numeric: lining-nums;
                 content: "✶";
                 font-weight: 600;
+                position: absolute;
+                left: -0.625rem;
+                top: 0.0625rem;
             }
         }
     }
