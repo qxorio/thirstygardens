@@ -31,6 +31,7 @@ body {
     ol {
         margin: 0;
         padding-left: 0.65rem;
+        list-style-type: none;
 
         & li {
             margin: 0.5rem 0;
@@ -47,7 +48,6 @@ body {
 
     & ul {
         padding: 0;
-        list-style: none;
 
         & li {
             display: flex;
@@ -83,22 +83,28 @@ body {
 
 @media screen and (max-width: 37.4375rem) {
     .cocktail {
+        max-width: 21rem;
+        margin: 0 auto;
+
         & img {
-            text-align: center;
+            display: block;
+            margin: 0 auto;
         }
 
         & .details {
-            width: 75%;
+            width: 85%;
             margin: 0 auto;
 
             & .divider {
                 border-style: dotted;
                 border-color: #000000;
-                border-image-source: url("/assets/img/divider.svg");
-                border-image-slice: 0% 100%;
+                border-image-source: url("/assets/img/dot.svg");
+                border-image-slice: 14;
                 border-image-repeat: round;
-                border-width: 0 0 0 3px;
-                height: 105%;
+                border-width: 0.5rem 0 0 0;
+                width: 100%;
+                display: block;
+                margin: 1.75rem 0 1.5rem;
             }
         }
     }
@@ -139,10 +145,10 @@ body {
                 grid-area: divider;
                 border-style: dotted;
                 border-color: #000000;
-                border-image-source: url("/assets/img/divider.svg");
-                border-image-slice: 0% 100%;
+                border-image-source: url("/assets/img/dot.svg");
+                border-image-slice: 14;
                 border-image-repeat: round;
-                border-width: 0 0 0 3px;
+                border-width: 0 0 0 0.5rem;
                 height: 105%;
             }
 
