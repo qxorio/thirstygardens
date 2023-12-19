@@ -73,7 +73,7 @@ body {
 
     & .cocktail {
         & img {
-            width: 11rem;
+            height: 14.5rem;
         }
 
         & .measure {
@@ -87,7 +87,7 @@ body {
 @media screen and (max-width: 37.4375rem) {
     .cocktail {
         max-width: 21rem;
-        margin: 0 auto;
+        margin: 5rem auto;
 
         & img {
             display: block;
@@ -122,6 +122,14 @@ body {
             "image heading"
             "image details";
         grid-column-gap: 2.5rem;
+        margin: 5rem 0;
+
+        &.flipped {
+            grid-template-columns: 1fr 200px;
+            grid-template-areas:
+                "heading image"
+                "details image";
+        }
 
         & img {
             grid-area: image;
@@ -131,6 +139,7 @@ body {
         & h2 {
             grid-area: heading;
             margin: 0 0 1.25rem;
+            align-self: center;
         }
         & .details {
             grid-area: details;
