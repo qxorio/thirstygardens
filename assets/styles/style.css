@@ -3,7 +3,7 @@ body {
     background-attachment: fixed;
     font-family: "Zilla Slab", sans-serif;
     font-size: 1.125rem;
-    padding: 2rem 1.5rem 5rem;
+    padding: 2rem 2rem 4rem;
 
     & main {
         max-width: 50rem;
@@ -11,6 +11,28 @@ body {
 
         & header {
             margin-bottom: 5rem;
+
+            & p {
+                font-size: 1rem;
+                margin: 2rem auto 1rem;
+                text-align: center;
+                max-width: 38.75rem;
+
+                & span {
+                    text-transform: lowercase;
+                }
+            }
+
+            & img {
+                margin: 2rem auto 0;
+                display: block;
+                width: 85%;
+                max-width: 19.5rem;
+
+                &:nth-child(2) {
+                    display: none;
+                }
+            }
         }
     }
 
@@ -72,6 +94,10 @@ body {
     }
 
     & .cocktail {
+        &:last-child {
+            margin-bottom: 0;
+        }
+
         & img {
             height: 14.5rem;
         }
@@ -80,6 +106,16 @@ body {
             font-variant-numeric: diagonal-fractions;
             display: inline-block;
             min-width: 1.75rem;
+        }
+    }
+
+    & footer {
+        text-align: center;
+        & a {
+            font-size: 3.5rem;
+            font-family: sans-serif;
+            text-decoration: none;
+            color: black;
         }
     }
 }
@@ -114,6 +150,19 @@ body {
 }
 
 @media screen and (min-width: 37.5rem) {
+    body main header {
+        & img {
+            max-width: 32.5rem;
+
+            &:first-child {
+                display: none;
+            }
+
+            &:nth-child(2) {
+                display: block;
+            }
+        }
+    }
     .cocktail {
         display: grid;
         grid-template-rows: auto;
@@ -122,7 +171,7 @@ body {
             "image heading"
             "image details";
         grid-column-gap: 2.5rem;
-        margin: 5rem 0;
+        margin: 5.5rem 0;
 
         &.flipped {
             grid-template-columns: 1fr 200px;
