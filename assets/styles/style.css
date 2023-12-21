@@ -112,7 +112,7 @@ body {
     & footer {
         text-align: center;
         & a {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-family: sans-serif;
             text-decoration: none;
             color: black;
