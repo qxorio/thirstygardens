@@ -111,11 +111,20 @@ body {
 
     & footer {
         text-align: center;
+        position: relative;
+        font-size: 1rem;
+
         & a {
-            font-size: 3rem;
-            font-family: sans-serif;
-            text-decoration: none;
-            color: black;
+            color: #000000;
+        }
+
+        & p {
+            margin-bottom: 0.65rem;
+            & span {
+                margin-bottom: 0.25rem;
+                display: block;
+                font-size: 1.25rem;
+            }
         }
     }
 }
