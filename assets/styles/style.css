@@ -10,9 +10,10 @@ body {
         margin: 0 auto;
 
         & header {
-            margin-bottom: 5rem;
+            margin-bottom: 6rem;
+            position: relative;
 
-            & p {
+            & p.intro {
                 font-size: 1rem;
                 margin: 2rem auto 1rem;
                 text-align: center;
@@ -23,7 +24,7 @@ body {
                 }
             }
 
-            & img {
+            & .logo img {
                 margin: 2rem auto 0;
                 display: block;
                 width: 85%;
@@ -34,6 +35,67 @@ body {
                 }
             }
         }
+
+        &.index {
+            & .daily-harvest {
+                position: absolute;
+                right: 70%;
+                transform: rotate(-10deg);
+                bottom: -41%;
+
+                & img {
+                    filter: invert(48%) sepia(79%) saturate(391%) hue-rotate(28deg) brightness(96%) contrast(89%);
+                    width: 6.25rem;
+                    animation: orbit 30s linear infinite;
+                }
+
+                & p {
+                    font-family: "Young Serif", serif;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    color: #000000;
+                    text-decoration: underline;
+                    text-align: center;
+                    transform: translateX(-50%) translateY(-62%);
+                    margin: 0;
+                    font-size: 0.9375rem;
+                }
+            }
+        }
+
+        &.daily-harvest {
+            & header {
+                margin-bottom: 3rem;
+
+                & h1 {
+                    font-size: 2.75rem;
+                    margin-bottom: 1rem;
+                }
+
+                & p {
+                    margin-top: 1rem;
+                }
+            }
+
+            & section {
+                margin: 3rem 0;
+
+                & li {
+                    display: block;
+                    margin-bottom: 1.5rem;
+
+                    & h3 {
+                        font-size: 1.5rem;
+                    }
+
+                    & h3,
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+        }
     }
 
     & h1,
@@ -41,7 +103,10 @@ body {
         text-align: center;
     }
 
-    & h2 {
+    & h1,
+    h2,
+    h3,
+    h4 {
         font-family: "Young Serif", serif;
         text-transform: uppercase;
         font-size: 2rem;
@@ -159,19 +224,42 @@ body {
 }
 
 @media screen and (min-width: 37.5rem) {
-    body main header {
-        & img {
-            max-width: 32.5rem;
+    body main {
+        & header {
+            & .logo img {
+                max-width: 32.5rem;
 
-            &:first-child {
-                display: none;
+                &:first-child {
+                    display: none;
+                }
+
+                &:nth-child(2) {
+                    display: block;
+                }
             }
+        }
 
-            &:nth-child(2) {
-                display: block;
+        &.index {
+            & .daily-harvest {
+                right: unset;
+                left: 8%;
+                transform: rotate(-10deg) scale(0.8);
+                bottom: -58%;
+            }
+        }
+
+        &.daily-harvest {
+            & section ul li {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                &.too-long {
+                    display: block;
+                }
             }
         }
     }
+
     .cocktail {
         display: grid;
         grid-template-rows: auto;
@@ -231,6 +319,15 @@ body {
                 margin: 0.5rem 0;
             }
         }
+    }
+}
+
+@keyframes orbit {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 

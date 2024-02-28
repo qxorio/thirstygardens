@@ -5,15 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Thirsty Gardens features Quinn Tenorio's botanical imaginations." />
         <title>thirsty gardens</title>
-        <link rel="stylesheet" href="./assets/styles/_normalize.css" />
-        <link rel="stylesheet" href="./assets/styles/style.css" />
+        <link rel="stylesheet" href="/assets/styles/_normalize.css" />
+        <link rel="stylesheet" href="/assets/styles/style.css" />
         <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
     </head>
     <body>
-        <main>
+        <main class="index">
             <header>
-                <a href="/"
+                <a class="logo" href="/"
                     ><img
                         id="logoStacked"
                         src="/assets/img/thirstygardens-stacked.png"
@@ -25,12 +25,16 @@
                         alt="thirsty gardens"
                         title="thirsty gardens"
                 /></a>
-                <p>
+                <p class="intro">
                     <span>Thirsty Gardens</span> features Quinn Tenorio's botanical imaginations. First borne out of a
                     months long journey to recreate a mystery cocktail at one of Seattle's most famous bars, the menu
                     has grown to showcase cocktails that use overlooked and surprising ingredients. As more are dreamt
                     up, they will be added below. Enjoy.
                 </p>
+                <a class="daily-harvest" href="/daily-harvest/">
+                    <img src="/assets/img/seal.svg" />
+                    <p><span>Daily</span> <span>Harvest</span></p>
+                </a>
             </header>
             <section class="cocktail">
                 <img src="/assets/img/lemonstalk.png" />
@@ -158,10 +162,10 @@
                     <ul>
                         <li><span class="measure">1 1/4</span> <span class="ingredient">oz Rosé de Provence</span></li>
                         <li>
-                            <span class="measure">1</span><span class="ingredient">oz lychee juice (Mogu Mogu)</span>
+                            <span class="measure">1</span> <span class="ingredient">oz lychee juice (Mogu Mogu)</span>
                         </li>
-                        <li><span class="measure">3/4</span><span class="ingredient">oz vodka</span></li>
-                        <li><span class="measure">1/2</span><span class="ingredient">oz St-Germain liqueur</span></li>
+                        <li><span class="measure">3/4</span> <span class="ingredient">oz vodka</span></li>
+                        <li><span class="measure">1/2</span> <span class="ingredient">oz St-Germain liqueur</span></li>
                         <li><span class="measure">1/2</span> <span class="ingredient">oz lemon juice</span></li>
                         <li><span class="measure">1/4</span> <span class="ingredient">oz grapefruit juice</span></li>
                     </ul>
@@ -170,6 +174,69 @@
                         <li>Stir ingredients together with ice.</li>
                         <li>Double strain into chilled nick and nora.</li>
                         <li>Garnish with edible flower.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="cocktail">
+                <img src="/assets/img/gingerberry.png" />
+                <h2>Gingerberry</h2>
+                <div class="details">
+                    <ul>
+                        <li><span class="measure">2</span> <span class="ingredient">oz Lillet Blanc</span></li>
+                        <li><span class="measure">1 1/2</span> <span class="ingredient">oz sparkling wine</span></li>
+                        <li><span class="measure">1</span> <span class="ingredient">oz cranberry juice</span></li>
+                        <li><span class="measure">1/2</span> <span class="ingredient">oz simple syrup</span></li>
+                        <li><span class="measure">1/4</span> <span class="ingredient">oz ginger juice</span></li>
+                    </ul>
+                    <span class="divider" aria-hidden="true"></span>
+                    <ol>
+                        <li>Shake all but sparkling wine with ice.</li>
+                        <li>Double strain into chilled coupe.</li>
+                        <li>Top with sparkling wine.</li>
+                        <li>Garnish with fresh cranberry.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="cocktail flipped">
+                <img src="/assets/img/fernetspritz.png" />
+                <h2>Fernet Spritz</h2>
+                <div class="details">
+                    <ul>
+                        <li><span class="measure">3/4</span> <span class="ingredient">oz Fernet Branca</span></li>
+                        <li><span class="measure">1/2</span> <span class="ingredient">oz fresh orange juice</span></li>
+                        <li><span class="measure">1/1</span> <span class="ingredient">oz maple syrup</span></li>
+                        <li><span class="measure">4</span> <span class="ingredient">oz sparkling wine</span></li>
+                    </ul>
+                    <span class="divider" aria-hidden="true"></span>
+                    <ol>
+                        <li>Shake all but sparkling wine with ice.</li>
+                        <li>Double strain into champagne flute.</li>
+                        <li>Top with sparkling wine.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section class="cocktail">
+                <img src="/assets/img/springtimeishere.png" />
+                <h2>Springtime is Here</h2>
+                <div class="details">
+                    <ul>
+                        <li>
+                            <span class="measure">1 1/2</span> <span class="ingredient">oz Denver Distillery Gin</span>
+                        </li>
+                        <li><span class="measure">1/2</span> <span class="ingredient">oz Yellow Chartreuse</span></li>
+                        <li><span class="measure">1/2</span> <span class="ingredient">oz lemon juice</span></li>
+                        <li><span class="measure">1/2</span> <span class="ingredient">oz honey syrup</span></li>
+                        <li><span class="measure">1</span> <span class="ingredient">egg white</span></li>
+                    </ul>
+                    <span class="divider" aria-hidden="true"></span>
+                    <ol>
+                        <li>Dry shake ingredients.</li>
+                        <li>Add ice to shaker and shake again.</li>
+                        <li>Double strain into coupe glass.</li>
+                        <li>Garnish with dried lavender flowers.</li>
                     </ol>
                 </div>
             </section>
