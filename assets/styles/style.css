@@ -16,7 +16,7 @@ body {
             & p.intro {
                 font-size: 1rem;
                 margin: 2rem auto 1rem;
-                text-align: center;
+                text-align: justify;
                 max-width: 38.75rem;
 
                 & span {
@@ -39,14 +39,14 @@ body {
         &.index {
             & .daily-harvest {
                 position: absolute;
-                right: 70%;
+                right: 68%;
                 transform: rotate(-10deg);
-                bottom: -41%;
+                bottom: -6.75rem;
 
                 & img {
-                    filter: invert(48%) sepia(79%) saturate(391%) hue-rotate(28deg) brightness(96%) contrast(89%);
-                    width: 6.25rem;
-                    animation: orbit 30s linear infinite;
+                    /* filter: invert(48%) sepia(79%) saturate(391%) hue-rotate(28deg) brightness(96%) contrast(89%); */
+                    width: 5.5rem;
+                    /* animation: orbit 30s linear infinite; */
                 }
 
                 & p {
@@ -54,10 +54,10 @@ body {
                     position: absolute;
                     top: 50%;
                     left: 50%;
-                    color: #000000;
+                    color: #ffffff;
                     text-decoration: underline;
                     text-align: center;
-                    transform: translateX(-50%) translateY(-62%);
+                    transform: translateX(-52%) translateY(-56%);
                     margin: 0;
                     font-size: 0.9375rem;
                 }
@@ -159,12 +159,18 @@ body {
     }
 
     & .cocktail {
+        position: relative;
+
         &:last-child {
             margin-bottom: 0;
         }
 
-        & img {
-            height: 14.5rem;
+        & .drink-img {
+            position: relative;
+
+            & > img {
+                height: 14.5rem;
+            }
         }
 
         & .measure {
@@ -190,6 +196,31 @@ body {
                 display: block;
                 font-size: 1.25rem;
             }
+        }
+    }
+
+    & .new-seal {
+        position: absolute;
+        top: 0;
+        transform: rotate(10deg);
+        right: 0;
+
+        & img {
+            width: 4.5rem;
+            animation: orbit 30s linear infinite;
+        }
+
+        & p {
+            font-family: "Young Serif", serif;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #ffffff;
+            text-decoration: underline;
+            text-align: center;
+            transform: translateX(-50%) translateY(-65%);
+            margin: 0;
+            font-size: 0.9375rem;
         }
     }
 }
@@ -242,9 +273,9 @@ body {
         &.index {
             & .daily-harvest {
                 right: unset;
-                left: 8%;
+                left: 5%;
                 transform: rotate(-10deg) scale(0.8);
-                bottom: -58%;
+                bottom: -6rem;
             }
         }
 
@@ -277,10 +308,14 @@ body {
                 "details image";
         }
 
-        & img {
+        & .drink-img {
             grid-area: image;
             align-self: center;
             justify-self: center;
+
+            & .new-seal {
+                right: -35%;
+            }
         }
         & h2 {
             grid-area: heading;
