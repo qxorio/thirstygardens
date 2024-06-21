@@ -1,116 +1,143 @@
 body {
     background: url("/assets/img/background.png");
     background-attachment: fixed;
-    font-family: "Zilla Slab", sans-serif;
-    font-size: 1.125rem;
     padding: 2rem 2rem 4rem;
+
+    & p,
+    span,
+    li,
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: "Vulf Mono", sans-serif;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 1.125rem;
+        line-height: 1.375;
+        letter-spacing: -0.04rem;
+        margin: 0;
+    }
+
+    & .lower {
+        text-transform: lowercase;
+    }
 
     & main {
         max-width: 50rem;
         margin: 0 auto;
 
         & header {
-            margin-bottom: 6rem;
-            position: relative;
+            margin-bottom: 5rem;
 
-            & p.intro {
-                font-size: 1rem;
-                margin: 2rem auto 1rem;
-                text-align: justify;
-                max-width: 38.75rem;
+            & .intro {
+                margin: 1.75rem 0;
+                display: flex;
+                flex-direction: column;
+                align-items: end;
 
-                & span {
-                    text-transform: lowercase;
+                & p.backstory {
+                    margin-bottom: 1.5rem;
+                    margin-top: 0;
+                    text-align: justify;
+
+                    & span {
+                        text-transform: lowercase;
+                    }
                 }
             }
 
-            & .logo img {
-                margin: 2rem auto 0;
-                display: block;
-                width: 85%;
-                max-width: 19.5rem;
+            & .logo {
+                color: #000000;
+                text-decoration: none;
 
-                &:nth-child(2) {
-                    display: none;
+                & h1 {
+                    margin: 0;
+                    display: flex;
+                    gap: 1rem;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    line-height: 1.1;
+
+                    & span {
+                        flex-basis: fit-content;
+                    }
+
+                    &::before,
+                    &::after {
+                        content: "\2698";
+                        font-style: normal;
+                        font-size: 1.75rem;
+                    }
                 }
             }
         }
 
         &.index {
             & .daily-harvest {
-                position: absolute;
-                right: 68%;
-                transform: rotate(-10deg);
-                bottom: -6.75rem;
-
-                & img {
-                    /* filter: invert(48%) sepia(79%) saturate(391%) hue-rotate(28deg) brightness(96%) contrast(89%); */
-                    width: 5.5rem;
-                    /* animation: orbit 30s linear infinite; */
-                }
+                position: relative;
+                text-decoration: none;
+                right: 1.5rem;
 
                 & p {
-                    font-family: "Young Serif", serif;
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    color: #ffffff;
-                    text-decoration: underline;
-                    text-align: center;
-                    transform: translateX(-52%) translateY(-56%);
+                    position: relative;
                     margin: 0;
-                    font-size: 0.9375rem;
+                    font-size: 1.25rem;
+                    color: #000000;
+                    font-weight: 700;
+
+                    &::after {
+                        position: absolute;
+                        padding-left: 0.5rem;
+                        content: "\2192";
+                        animation: bounce 3s infinite;
+                    }
                 }
             }
         }
 
         &.daily-harvest {
-            & header {
-                margin-bottom: 3rem;
+            & .intro {
+                display: block;
+                flex-direction: unset;
+                align-items: unset;
+            }
 
-                & h1 {
-                    font-size: 2.75rem;
-                    margin-bottom: 1rem;
-                }
-
-                & p {
-                    margin-top: 1rem;
-                }
+            & h2 {
+                margin-bottom: 0.75rem;
             }
 
             & section {
                 margin: 3rem 0;
 
-                & li {
-                    display: block;
-                    margin-bottom: 1.5rem;
+                & ul {
+                    margin: 0;
+                    & li {
+                        display: block;
+                        margin-bottom: 1.5rem;
 
-                    & h3 {
-                        font-size: 1.5rem;
-                    }
+                        & h3 {
+                            font-size: 1.5rem;
+                        }
 
-                    & h3,
-                    p {
-                        margin: 0;
+                        & h3,
+                        p {
+                            margin: 0;
+                        }
                     }
                 }
             }
         }
-    }
-
-    & h1,
-    h2 {
-        text-align: center;
     }
 
     & h1,
     h2,
     h3,
     h4 {
-        font-family: "Young Serif", serif;
-        text-transform: uppercase;
+        font-family: "Vulf Mono", serif;
+        font-weight: 700;
         font-size: 2rem;
-        font-weight: normal;
     }
 
     & ul,
@@ -161,23 +188,27 @@ body {
     & .cocktail {
         position: relative;
 
+        & .info {
+            margin: 1.25rem 0;
+
+            & h2 {
+                margin-bottom: 0.75rem;
+            }
+        }
+
         &:last-child {
             margin-bottom: 0;
         }
 
         & .drink-img {
             position: relative;
-
-            & > img {
-                height: 14.5rem;
-            }
         }
 
-        & .measure {
+        /* & .measure {
             font-variant-numeric: diagonal-fractions;
             display: inline-block;
             min-width: 1.75rem;
-        }
+        } */
     }
 
     & footer {
@@ -206,20 +237,20 @@ body {
         right: 0;
 
         & img {
-            width: 4.5rem;
+            width: 3.5rem;
             animation: orbit 30s linear infinite;
         }
 
         & p {
-            font-family: "Young Serif", serif;
+            font-family: "Vulf Mono", serif;
             position: absolute;
             top: 50%;
             left: 50%;
             color: #ffffff;
             text-align: center;
-            transform: translateX(-50%) translateY(-65%);
+            transform: translateX(-50%) translateY(-60%);
             margin: 0;
-            font-size: 0.9375rem;
+            font-size: 0.875rem;
         }
     }
 }
@@ -229,12 +260,18 @@ body {
         max-width: 21rem;
         margin: 5rem auto;
 
-        & img {
-            display: block;
-            margin: 0 auto;
+        & h2 {
+            text-align: center;
         }
 
-        & .details {
+        & .drink-img {
+            & > img {
+                display: block;
+                margin: 0 auto;
+                height: 12rem;
+            }
+        }
+        /* & .details {
             width: 85%;
             margin: 0 auto;
 
@@ -249,12 +286,12 @@ body {
                 display: block;
                 margin: 1.75rem 0 1.5rem;
             }
-        }
+        } */
     }
 }
 
 @media screen and (min-width: 37.5rem) {
-    body main {
+    /* body main {
         & header {
             & .logo img {
                 max-width: 32.5rem;
@@ -269,15 +306,6 @@ body {
             }
         }
 
-        &.index {
-            & .daily-harvest {
-                right: unset;
-                left: 5%;
-                transform: rotate(-10deg) scale(0.8);
-                bottom: -6rem;
-            }
-        }
-
         &.daily-harvest {
             & section ul li {
                 display: flex;
@@ -288,40 +316,58 @@ body {
                 }
             }
         }
-    }
+    } */
+
+    /* .cocktail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .drink-img {
+            & > img {
+                height: 10rem;
+            }
+        }
+    } */
 
     .cocktail {
         display: grid;
         grid-template-rows: auto;
-        grid-template-columns: 200px 1fr;
-        grid-template-areas:
-            "image heading"
-            "image details";
+        grid-template-columns: 10rem 1fr;
+        grid-template-areas: "image info";
         grid-column-gap: 2.5rem;
         margin: 5.5rem 0;
 
-        &.flipped {
+        /* &.flipped {
             grid-template-columns: 1fr 200px;
             grid-template-areas:
-                "heading image"
-                "details image";
-        }
+                "info image"
+                "info image";
+        } */
 
         & .drink-img {
             grid-area: image;
             align-self: center;
             justify-self: center;
 
+            & > img {
+                height: 10rem;
+            }
+
             & .new-seal {
-                right: -35%;
+                right: -45%;
             }
         }
-        & h2 {
+        & .info {
+            grid-area: info;
+            align-self: center;
+        }
+        /* & h2 {
             grid-area: heading;
             margin: 0 0 1.25rem;
             align-self: center;
-        }
-        & .details {
+        } */
+        /* & .details {
             grid-area: details;
             display: grid;
             grid-template-rows: auto;
@@ -352,7 +398,7 @@ body {
             ol {
                 margin: 0.5rem 0;
             }
-        }
+        } */
     }
 }
 
@@ -365,8 +411,24 @@ body {
     }
 }
 
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(0);
+    }
+    40% {
+        transform: translateX(1.25rem);
+    }
+    60% {
+        transform: translateX(0.625rem);
+    }
+}
+
 /* ### FONTS ### */
-@font-face {
+/* @font-face {
     font-family: "Young Serif";
     font-style: normal;
     font-weight: 400;
@@ -396,4 +458,68 @@ body {
     font-weight: 600;
     font-display: swap;
     src: url("/assets/fonts/zilla-slab/ZillaSlab-SemiBold.woff2") format("woff2");
+} */
+
+@font-face {
+    font-family: "Vulf Mono";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url("/assets/fonts/vulf/Vulf_Mono-Light_web.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Vulf Mono";
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: url("/assets/fonts/vulf/Vulf_Mono-Light_Italic_web.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Vulf Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/assets/fonts/vulf/Vulf_Mono-Regular_web.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Vulf Mono";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/assets/fonts/vulf/Vulf_Mono-Italic_web.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Vulf Mono";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/assets/fonts/vulf/Vulf_Mono-Bold_web.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Vulf Mono";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/assets/fonts/vulf/Vulf_Mono-Bold_Italic_web.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Vulf Mono";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("/assets/fonts/vulf/Vulf_Mono-Black_web.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Vulf Mono";
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: url("/assets/fonts/vulf/Vulf_Mono-Black_Italic_web.woff2") format("woff2");
 }
