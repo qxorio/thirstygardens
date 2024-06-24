@@ -25,13 +25,14 @@ module.exports = async () => {
 
     return structuredCocktails
         .filter((cocktail) => cocktail.properties.Unavailable.checkbox)
-        .map((cocktail) => {
+        .map((cocktail, index) => {
             return {
                 name: cocktail.properties.Name.title[0].plain_text,
                 flavors: cocktail.properties.Flavors.rich_text[0].plain_text,
                 ingredients: cocktail.ingredients,
                 instructions: cocktail.instructions,
                 notes: cocktail.notes,
+                href: index,
             };
         })
         .sort((a, b) => {

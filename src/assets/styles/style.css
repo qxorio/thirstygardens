@@ -194,6 +194,19 @@ body {
                         }
                     }
                 }
+
+                &.cocktails {
+                    & ul {
+                        & li {
+                            & button {
+                                border: 0;
+                                background: none;
+                                text-decoration: underline;
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

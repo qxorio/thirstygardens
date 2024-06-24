@@ -19,41 +19,34 @@ eleventyComputed:
 <section>
     <div class="head-with-hr"><h3 class="lower">Fermented</h3></div>
     <ul>
+        {% for category in fermented %}
         <li>
-            <h4 class="lower">Sparkling wine</h4>
-            <p>Brut: Chandon</p>
+            <h4 class="lower">{{ category.name }}</h4>
+            <p>{{ category.options }}</p>
         </li>
+        {% endfor %}
     </ul>
 </section>
 <section>
     <div class="head-with-hr"><h3 class="lower">Sans booze</h3></div>
     <ul>
+        {% for category in nonalcoholic %}
         <li>
-            <h4 class="lower">Sparkling water</h4>
-            <p>unflavored</p>
+            <h4 class="lower">{{ category.name }}</h4>
+            <p>{{ category.options }}</p>
         </li>
-        <li>
-            <h4 class="lower">Coconut water</h4>
-            <p>Real Coco</p>
-        </li>
-        <li>
-            <h4 class="lower">Hot tea</h4>
-            <p>various</p>
-        </li>
-        <li>
-            <h4 class="lower">Soda</h4>
-            <p>Diet Coke</p>
-        </li>
+        {% endfor %}
     </ul>
 </section>
-<section>
+<section class="cocktails">
     <div class="head-with-hr"><h3 class="lower">Cocktails</h3></div>
     <ul>
         {% for cocktail in cocktails %}
         <li>
-            <h4 class="lower">{{ cocktail.name }}</h4>
+            <button class="open-details"><h4 class="lower">{{ cocktail.name }}</h4></button>
             <p>{{ cocktail.flavors }}</p>
-            <div class="details" aria-hidden="true" style="display: none;">
+            <div class="details">
+                <button class="close-details"><p class="lower">Close</p></button>
                 <ul>
                     {% for ingredient in cocktail.ingredients %}
                     <li>
@@ -71,47 +64,31 @@ eleventyComputed:
         </li>
         {% endfor %}
     </ul>
+    <div class="detail-overlay" aria-hidden="true"></div>
 </section>
 <section>
     <div class="head-with-hr"><h3 class="lower">Spirits</h3></div>
     <ul>
+        {% for category in spirits %}
         <li>
-            <h4 class="lower">Gin</h4>
-            <p>Kirkland, Kew Gardens, YUZUGIN, Bobby's, Nordés, Hayman's Old Tom, KI NO TEA</p>
+            <h4 class="lower">{{ category.name }}</h4>
+            <p>{{ category.options }}</p>
         </li>
-        <li>
-            <h4 class="lower">Rum</h4>
-            <p>Santa Theresa, Bear Creek Distillery Spiced, Plantation Three Stars</p>
-        </li>
-        <li>
-            <h4 class="lower">Vodka</h4>
-            <p>Felene</p>
-        </li>
-        <li>
-            <h4 class="lower">Liqueurs</h4>
-            <p>
-                Cointreau, Hiram Walker Cherry Brandy, St. George Absinthe, Chareau, Stirrings Peach,
-                Aperol, St. Germain Elderflower, Chambord, Luxardo Maraschino, Fernet Branca, Mr. Black
-                Coffee, Green Chartreuse, Yellow Chartreuse
-            </p>
-        </li>
-        <li>
-            <h4 class="lower">Agave</h4>
-            <p>Tequila: Lalo</p>
-            <p>Mezcal: Bozal</p>
-        </li>
-        <li>
-            <h4 class="lower">Whisky</h4>
-            <p>Bourbon: Angel's Envy</p>
-        </li>
-        <li>
-            <h4 class="lower">Brandy</h4>
-            <p>Cognac: Hennessy</p>
-        </li>
-        <li>
-            <h4 class="lower">Bitters</h4>
-            <p>Peychaud's, Angostura, Fee's Orange, Fee's Cardamom, Chartreuse</p>
-        </li>
+        {% endfor %}
     </ul>
 </section>
+
+<script>
+    const cocktailButtons = document.querySelectorAll('.cocktails .open-details');
+    const overlay = document.querySelector('.detail-overlay');
+    cocktailButtons.forEach((element) => {
+        element.addEventListener('click', (clickedElem) => {
+            let details = element.parentNode.getElementsByClassName('details')[0];
+            details.classList.add('show');
+            overlay.classList.add('show');
+        });
+            
+        debugger;
+    });
+</script>
 {% endblock %}
