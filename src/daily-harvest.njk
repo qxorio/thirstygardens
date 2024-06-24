@@ -49,158 +49,27 @@ eleventyComputed:
 <section>
     <div class="head-with-hr"><h3 class="lower">Cocktails</h3></div>
     <ul>
+        {% for cocktail in cocktails %}
         <li>
-            <h4 class="lower">Americano</h4>
-            <p>campari, vermouth, soda water</p>
+            <h4 class="lower">{{ cocktail.name }}</h4>
+            <p>{{ cocktail.flavors }}</p>
+            <div class="details" aria-hidden="true" style="display: none;">
+                <ul>
+                    {% for ingredient in cocktail.ingredients %}
+                    <li>
+                        <span class="measure">{{ ingredient.measure }}</span> <span class="ingredient">{{ ingredient.name }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <span class="divider" aria-hidden="true"></span>
+                <ol>
+                    {% for instruction in cocktail.instructions %}
+                    <li>{{ instruction }}</li>
+                    {% endfor %}
+                </ol>
+            </div>
         </li>
-        <li>
-            <h4 class="lower">Aperol Spritz</h4>
-            <p>prosecco, aperol, soda water</p>
-        </li>
-        <li>
-            <h4 class="lower">Bees Knees</h4>
-            <p>gin, lemon, honey</p>
-        </li>
-        <li>
-            <h4 class="lower">Boulivardier</h4>
-            <p>whiskey, campari, vermouth</p>
-        </li>
-        <li>
-            <h4 class="lower">Whiskey Highball</h4>
-            <p>whiskey, soda water</p>
-        </li>
-        <li>
-            <h4 class="lower">Bramble</h4>
-            <p>gin, lemon, simple, blackberry</p>
-        </li>
-        <li>
-            <h4 class="lower">Casino</h4>
-            <p>gin, maraschino, lemon, orange</p>
-        </li>
-        <li>
-            <h4 class="lower">Classic Martini</h4>
-            <p>gin, vermouth, orange</p>
-        </li>
-        <li>
-            <h4 class="lower">Corpse Reviver no. 2</h4>
-            <p>gin, cointreau, lillet blanc, lemon, absinthe</p>
-        </li>
-        <li>
-            <h4 class="lower">Daquiri</h4>
-            <p>Rum, lime, simple</p>
-        </li>
-        <li>
-            <h4 class="lower">Fancy Free</h4>
-            <p>bourbon, maraschino, angostura, orange</p>
-        </li>
-        <li>
-            <h4 class="lower">French 75</h4>
-            <p>gin, lemon, simple, sparkling wine</p>
-        </li>
-        <li>
-            <h4 class="lower">Fuzzy Navel</h4>
-            <p>rum, peach, orange, saline</p>
-        </li>
-        <li>
-            <h4 class="lower">Gin Fizz</h4>
-            <p>gin, lemon, simple, egg white, soda</p>
-        </li>
-        <li>
-            <h4 class="lower">Gin & Tonic</h4>
-            <p>gin, tonic</p>
-        </li>
-        <li>
-            <h4 class="lower">Hanky Panky</h4>
-            <p>gin, sweet vermouth, fernet</p>
-        </li>
-        <li class="too-long">
-            <h4 class="lower">Improved Whiskey Cocktail</h4>
-            <p>whiskey, maraschino, simple, absinthe, angostura, peychaud's</p>
-        </li>
-        <li>
-            <h4 class="lower">Jockey Club</h4>
-            <p>bourbon, vermouth, maraschino</p>
-        </li>
-        <li>
-            <h4 class="lower">John Collins</h4>
-            <p>gin, lemon, simple, soda</p>
-        </li>
-        <li>
-            <h4 class="lower">Last Word</h4>
-            <p>gin, green chartreuse, maraschino, lime</p>
-        </li>
-        <li>
-            <h4 class="lower">Lemon Drop</h4>
-            <p>vodka, cointreau, lemon, simple</p>
-        </li>
-        <li>
-            <h4 class="lower">Manhattan</h4>
-            <p>rye, vermouth, angostura</p>
-        </li>
-        <li>
-            <h4 class="lower">Margarita</h4>
-            <p>tequila, cointreau, lime, agave</p>
-        </li>
-        <li>
-            <h4 class="lower">Martinez</h4>
-            <p>gin, vermouth, maraschino, orange</p>
-        </li>
-        <li>
-            <h4 class="lower">Naked and Famous</h4>
-            <p>mezcal, yellow chartreuse, aperol, lime</p>
-        </li>
-        <li>
-            <h4 class="lower">Negroni</h4>
-            <p>gin, campari, vermouth</p>
-        </li>
-        <li>
-            <h4 class="lower">Old Fashioned</h4>
-            <p>whiskey, sugar, angostura, water</p>
-        </li>
-        <li>
-            <h4 class="lower">Ranch Water</h4>
-            <p>tequila, lime, soda water</p>
-        </li>
-        <li>
-            <h4 class="lower">Sazerac</h4>
-            <p>rye, absinthe, sugar, peychaud's</p>
-        </li>
-        <li>
-            <h4 class="lower">Screwdriver</h4>
-            <p>vodka, orange</p>
-        </li>
-        <li>
-            <h4 class="lower">Sex on the Beach</h4>
-            <p>vodka, peach, orange, cranberry</p>
-        </li>
-        <li>
-            <h4 class="lower">Tipperary</h4>
-            <p>whiskey, vermouth, green chartreuse, angostura</p>
-        </li>
-        <li>
-            <h4 class="lower">Tuxedo no. 2</h4>
-            <p>gin, vermouth, maraschino, orange</p>
-        </li>
-        <li>
-            <h4 class="lower">Vesper</h4>
-            <p>gin, vodka, lillet blanc</p>
-        </li>
-        <li>
-            <h4 class="lower">Vodka Martini</h4>
-            <p>vodka, vermouth, orange</p>
-        </li>
-        <li>
-            <h4 class="lower">Vodka Soda</h4>
-            <p>vodka, soda water, lemon</p>
-        </li>
-        <li>
-            <h4 class="lower">White Lady</h4>
-            <p>gin, cointreau, lemon</p>
-        </li>
-        <li>
-            <h4 class="lower">Whiskey Sour</h4>
-            <p>bourbon, lemon, simple, egg white</p>
-        </li>
+        {% endfor %}
     </ul>
 </section>
 <section>
