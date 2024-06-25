@@ -45,26 +45,29 @@ eleventyComputed:
         <li>
             <button class="open-details"><h4 class="lower">{{ cocktail.name }}</h4></button>
             <p>{{ cocktail.flavors }}</p>
-            <div class="details">
-                <button class="close-details"><p class="lower">Close</p></button>
-                <ul>
-                    {% for ingredient in cocktail.ingredients %}
-                    <li>
-                        <span class="measure">{{ ingredient.measure }}</span> <span class="ingredient">{{ ingredient.name }}</span>
-                    </li>
-                    {% endfor %}
-                </ul>
-                <span class="divider" aria-hidden="true"></span>
-                <ol>
-                    {% for instruction in cocktail.instructions %}
-                    <li>{{ instruction }}</li>
-                    {% endfor %}
-                </ol>
+            <div class="cocktail-details">
+                <button class="close"><p class="lower">Close</p></button>
+                <div class="contents">
+                    <h4 class="lower">{{ cocktail.name }}</h4>
+                    <ul>
+                        {% for ingredient in cocktail.ingredients %}
+                        <li>
+                            <span class="measure">{{ ingredient.measure }}</span> <span class="ingredient">{{ ingredient.name }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <span class="divider" aria-hidden="true"></span>
+                    <ol>
+                        {% for instruction in cocktail.instructions %}
+                        <li>{{ instruction }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
             </div>
         </li>
         {% endfor %}
     </ul>
-    <div class="detail-overlay" aria-hidden="true"></div>
+    <div class="modal-overlay" aria-hidden="true"></div>
 </section>
 <section>
     <div class="head-with-hr"><h3 class="lower">Spirits</h3></div>
@@ -80,10 +83,10 @@ eleventyComputed:
 
 <script>
     const cocktailButtons = document.querySelectorAll('.cocktails .open-details');
-    const overlay = document.querySelector('.detail-overlay');
+    const overlay = document.querySelector('.modal-overlay');
     cocktailButtons.forEach((element) => {
         element.addEventListener('click', (clickedElem) => {
-            let details = element.parentNode.getElementsByClassName('details')[0];
+            let details = element.parentNode.getElementsByClassName('cocktail-details')[0];
             details.classList.add('show');
             overlay.classList.add('show');
         });
