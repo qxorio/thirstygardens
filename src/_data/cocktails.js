@@ -24,7 +24,7 @@ module.exports = async () => {
     let structuredCocktails = await Promise.all(results.map(getCocktailDetails));
 
     return structuredCocktails
-        .filter((cocktail) => cocktail.properties.Unavailable.checkbox)
+        .filter((cocktail) => !cocktail.properties.Unavailable.checkbox)
         .map((cocktail, index) => {
             return {
                 name: cocktail.properties.Name.title[0].plain_text,

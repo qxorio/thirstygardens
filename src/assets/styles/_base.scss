@@ -92,6 +92,15 @@ body {
         }
     }
 
+    button {
+        text-align: left;
+        border: 0;
+        background: none;
+        text-decoration: underline;
+        padding: 0;
+        cursor: pointer;
+    }
+
     & main {
         max-width: 50rem;
         margin: 0 auto;
@@ -165,12 +174,16 @@ body {
         text-transform: lowercase;
     }
 
+    button.open-details {
+        color: #000000;
+    }
+
     & .cocktail-details {
-        width: calc(100% - 1.5rem);
-        max-width: 34rem;
+        width: min(calc(100% - 7rem), 34rem);
+        max-height: 32rem;
         background-color: #000000;
         border-radius: 1.5rem;
-        padding: 2rem;
+        padding: 2rem 2rem 4rem;
         position: fixed;
         top: 50%;
         left: 50%;
@@ -180,17 +193,17 @@ body {
         transition: all 0.3s ease-in-out;
         display: none;
         color: white;
-        max-height: 34rem;
 
         & .close {
             position: absolute;
             color: white;
             right: 2rem;
+            bottom: 1.25rem;
         }
 
         & .contents {
             overflow-y: scroll;
-            max-height: 34rem;
+            max-height: 32rem;
 
             & h4 {
                 margin: 0 0 1rem;

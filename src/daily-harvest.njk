@@ -46,7 +46,6 @@ eleventyComputed:
             <button class="open-details"><h4 class="lower">{{ cocktail.name }}</h4></button>
             <p>{{ cocktail.flavors }}</p>
             <div class="cocktail-details">
-                <button class="close"><p class="lower">Close</p></button>
                 <div class="contents">
                     <h4 class="lower">{{ cocktail.name }}</h4>
                     <ul>
@@ -63,6 +62,7 @@ eleventyComputed:
                         {% endfor %}
                     </ol>
                 </div>
+                <button class="close"><p class="lower">Close</p></button>
             </div>
         </li>
         {% endfor %}
@@ -83,15 +83,23 @@ eleventyComputed:
 
 <script>
     const cocktailButtons = document.querySelectorAll('.cocktails .open-details');
+    const closeButtons = document.querySelectorAll('.cocktails .cocktail-details .close');
     const overlay = document.querySelector('.modal-overlay');
     cocktailButtons.forEach((element) => {
         element.addEventListener('click', (clickedElem) => {
             let details = element.parentNode.getElementsByClassName('cocktail-details')[0];
             details.classList.add('show');
             overlay.classList.add('show');
+            document.body.style.overflow = 'hidden';
         });
-            
-        debugger;
+    });
+    closeButtons.forEach((element) => {
+        element.addEventListener('click', (clickedElem) => {
+            let details = element.parentNode;
+            details.classList.remove('show');
+            overlay.classList.remove('show');
+            document.body.style.overflow = '';
+        });
     });
 </script>
 {% endblock %}
