@@ -1,0 +1,125 @@
+.index {
+    & .daily-harvest {
+        position: relative;
+        text-decoration: none;
+        right: 1.5rem;
+
+        & p {
+            position: relative;
+            margin: 0;
+            font-size: 1.25rem;
+            color: #000000;
+            font-weight: 700;
+
+            &::after {
+                position: absolute;
+                padding-left: 0.5rem;
+                content: "\2192";
+                animation: bounce 3s infinite;
+            }
+        }
+    }
+
+    & .intro {
+        & p.backstory {
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+            text-align: justify;
+
+            & span {
+                text-transform: lowercase;
+            }
+        }
+    }
+
+    & .cocktail {
+        position: relative;
+
+        & .info {
+            margin: 1.25rem 0;
+
+            & p {
+                margin-bottom: 0;
+            }
+        }
+
+        & .drink-img {
+            position: relative;
+        }
+
+        & .measure {
+            font-variant-numeric: diagonal-fractions;
+            display: inline-block;
+            min-width: 1.75rem;
+        }
+
+        @media screen and (max-width: 37.4375rem) {
+            max-width: 21rem;
+            margin: 5rem auto;
+
+            & h2 {
+                text-align: center;
+            }
+
+            & .drink-img {
+                & > img {
+                    display: block;
+                    margin: 0 auto;
+                    height: 12rem;
+                }
+            }
+        }
+
+        @media screen and (min-width: 37.5rem) {
+            display: grid;
+            grid-template-rows: auto;
+            grid-template-columns: 10rem 1fr;
+            grid-template-areas: "image info";
+            grid-column-gap: 2.5rem;
+            margin: 5.5rem 0;
+
+            & .drink-img {
+                grid-area: image;
+                align-self: center;
+                justify-self: center;
+
+                & > img {
+                    height: 10rem;
+                }
+
+                & .new-seal {
+                    right: -45%;
+                }
+            }
+
+            & .info {
+                grid-area: info;
+                align-self: center;
+            }
+        }
+    }
+
+    & .new-seal {
+        position: absolute;
+        top: 0;
+        transform: rotate(10deg);
+        right: 0;
+
+        & img {
+            width: 3.5rem;
+            animation: orbit 30s linear infinite;
+        }
+
+        & p {
+            font-family: "Vulf Mono", serif;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #ffffff;
+            text-align: center;
+            transform: translateX(-50%) translateY(-60%);
+            margin: 0;
+            font-size: 0.875rem;
+        }
+    }
+}

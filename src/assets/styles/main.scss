@@ -1,4 +1,12 @@
+/*** UTILITIES ***/
+@import "utils/variables";
+@import "utils/mixins";
+
 /*** GENERAL (global) ***/
 @import "normalize";
 @import "fonts";
 @import "base";
+
+/*** COMPONENTS ***/
+@import "components/dailyharvest";
+@import "components/index";

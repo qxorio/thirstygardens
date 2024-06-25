@@ -1,0 +1,15 @@
+@mixin screen-query($breakpoint, $minmax) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media screen and ($minmax: $breakpoint-value) {
+        @content;
+    }
+}
+
+@mixin headings {
+    h1,
+    h2,
+    h3,
+    h4 {
+        @content;
+    }
+}
