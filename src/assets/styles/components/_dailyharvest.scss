@@ -47,7 +47,7 @@
         & ul {
             margin: 0;
 
-            & li {
+            & li:not(.ingredient) {
                 display: block;
                 margin-bottom: 1.5rem;
 

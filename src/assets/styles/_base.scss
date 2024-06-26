@@ -70,7 +70,7 @@ body {
 
         & li {
             display: flex;
-            gap: 0.25rem;
+            gap: 0.5rem;
         }
     }
 
@@ -188,7 +188,7 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2), 0 0 0.75rem rgba(0, 0, 0, 0.3), 0 1rem 1rem rgba(0, 0, 0, 0.15);
         z-index: 3;
         transition: all 0.3s ease-in-out;
         display: none;
@@ -212,7 +212,13 @@ body {
             & .measure {
                 font-variant-numeric: diagonal-fractions;
                 display: inline-block;
-                min-width: 4.25rem;
+                min-width: 4rem;
+                font-style: normal;
+            }
+
+            & ul {
+                & li {
+                }
             }
         }
 

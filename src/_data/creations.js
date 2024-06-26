@@ -1,5 +1,6 @@
 require("dotenv").config();
 const notion = require("../_lib/utils").notionClient;
+const getCocktailDetails = require("../_lib/utils").getCocktailDetails;
 
 const creationsDatabase = process.env.NOTION_CREATIONS_DB_ID;
 
@@ -45,7 +46,7 @@ function getCustomDate(date) {
     return new Date(date).toDateString().split(" ").splice(1).join(" ");
 }
 
-async function getCocktailDetails(cocktail) {
+/* async function getCocktailDetails(cocktail) {
     var blocks = [];
 
     let blockPage = await notion.blocks.children.list({
@@ -104,3 +105,4 @@ async function getCocktailDetails(cocktail) {
 
     return cocktail;
 }
+ */

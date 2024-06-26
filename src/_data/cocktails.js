@@ -1,5 +1,6 @@
 require("dotenv").config();
 const notion = require("../_lib/utils").notionClient;
+const getCocktailDetails = require("../_lib/utils").getCocktailDetails;
 
 const cocktailsDatabase = process.env.NOTION_COCKTAILS_DB_ID;
 
@@ -21,6 +22,8 @@ module.exports = async () => {
         results = [...results, ...data.results];
     }
 
+    results = results.filter((cocktail) => !cocktail.properties.Unavailable.checkbox);
+
     let structuredCocktails = await Promise.all(results.map(getCocktailDetails));
 
     return structuredCocktails
@@ -40,8 +43,10 @@ module.exports = async () => {
         });
 };
 
-async function getCocktailDetails(cocktail) {
-    var blocks = [];
+/* async function getCocktailDetails(cocktail) {
+    var blocks = [],
+        dividers = [],
+        i;
 
     let blockPage = await notion.blocks.children.list({
         block_id: cocktail.id,
@@ -49,53 +54,28 @@ async function getCocktailDetails(cocktail) {
 
     blocks = [...blockPage.results];
 
-    while (blockPage.has_more) {
-        blockPage = await notion.blocks.children.list({
-            block_id: cocktail.id,
-            start_cursor: blockPage.next_cursor,
-        });
-
-        blocks = [...blocks, ...blockPage.results];
+    for (i = 0; i < blocks.length; i++) {
+        if (blocks[i].type === "divider") dividers.push(i);
     }
 
-    blocks.forEach(async (block) => {
-        if (block.has_children) {
-            let children = await notion.blocks.children.list({
-                block_id: block.id,
+    cocktail.ingredients = [];
+    cocktail.instructions = [];
+    cocktail.notes = dividers[1] == blocks.length - 1 ? null : [];
+
+    blocks.forEach(async (block, index) => {
+        if (index < dividers[0]) {
+            let ingredient = block.paragraph.rich_text[0].plain_text.split(", ");
+            cocktail.ingredients.push({
+                measure: ingredient[0],
+                name: ingredient[1],
             });
-
-            block.children = [...children.results];
-        }
-
-        switch (block.toggle.rich_text[0].plain_text) {
-            case "Ingredients":
-                cocktail.ingredients = block.children.map((child) => {
-                    let ingredient = child.paragraph.rich_text[0].plain_text.split(",");
-                    return {
-                        measure: ingredient[0],
-                        name: ingredient[1],
-                    };
-                });
-                break;
-            case "Instructions":
-                cocktail.instructions = block.children.map((child) => {
-                    return child.paragraph.rich_text[0].plain_text;
-                });
-                break;
-            case "Notes":
-                if (!block.has_children) {
-                    cocktail.notes = null;
-                    break;
-                }
-
-                cocktail.notes = block.children.map((child) => {
-                    return child.paragraph.rich_text[0].plain_text;
-                });
-                break;
-            default:
-                break;
+        } else if (index > dividers[0] && index < dividers[1]) {
+            cocktail.instructions.push(block.paragraph.rich_text[0].plain_text);
+        } else if (index > dividers[1]) {
+            cocktail.notes.push(block.paragraph.rich_text[0].plain_text);
         }
     });
 
     return cocktail;
 }
+ */
