@@ -21,7 +21,7 @@ eleventyComputed:
     <ul>
         {% for category in fermented %}
         <li>
-            <h4 class="lower">{{ category.name }}</h4>
+            <h4 class="lower inline-heading">{{ category.name }}</h4>
             <p>{{ category.options }}</p>
         </li>
         {% endfor %}
@@ -32,7 +32,7 @@ eleventyComputed:
     <ul>
         {% for category in nonalcoholic %}
         <li>
-            <h4 class="lower">{{ category.name }}</h4>
+            <h4 class="lower inline-heading">{{ category.name }}</h4>
             <p>{{ category.options }}</p>
         </li>
         {% endfor %}
@@ -42,13 +42,13 @@ eleventyComputed:
     <div class="head-with-hr"><h3 class="lower">Cocktails</h3></div>
     <ul>
         {% for cocktail in cocktails %}
-        <li>
-            <button class="open-details"><h4 class="lower">{{ cocktail.name }}</h4></button>
+        <li class="cocktail">
+            <button class="open-details"><h4 class="lower inline-heading">{{ cocktail.name }}</h4></button>
             <p>{{ cocktail.flavors }}</p>
             <div class="cocktail-details">
                 <div class="contents">
                     <h4 class="lower">{{ cocktail.name }}</h4>
-                    <ul>
+                    <ul class="ingredients">
                         {% for ingredient in cocktail.ingredients %}
                         <li class="ingredient">
                             <span class="measure">{{ ingredient.measure }}</span> <span class="ingredient">{{ ingredient.name }}</span>
@@ -61,51 +61,30 @@ eleventyComputed:
                         <li>{{ instruction }}</li>
                         {% endfor %}
                     </ol>
+                    {% if cocktail.notes %}
                     <span class="divider" aria-hidden="true"></span>
                     <ol>
                         {% for note in cocktail.notes %}
                         <li>{{ note }}</li>
                         {% endfor %}
                     </ol>
+                    {% endif %}
                 </div>
                 <button class="close"><p class="lower">Close</p></button>
             </div>
         </li>
         {% endfor %}
     </ul>
-    <div class="modal-overlay" aria-hidden="true"></div>
 </section>
 <section>
     <div class="head-with-hr"><h3 class="lower">Spirits</h3></div>
     <ul>
         {% for category in spirits %}
         <li>
-            <h4 class="lower">{{ category.name }}</h4>
+            <h4 class="lower inline-heading">{{ category.name }}</h4>
             <p>{{ category.options }}</p>
         </li>
         {% endfor %}
     </ul>
 </section>
-
-<script>
-    const cocktailButtons = document.querySelectorAll('.cocktails .open-details');
-    const closeButtons = document.querySelectorAll('.cocktails .cocktail-details .close');
-    const overlay = document.querySelector('.modal-overlay');
-    cocktailButtons.forEach((element) => {
-        element.addEventListener('click', (clickedElem) => {
-            let details = element.parentNode.getElementsByClassName('cocktail-details')[0];
-            details.classList.add('show');
-            overlay.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        });
-    });
-    closeButtons.forEach((element) => {
-        element.addEventListener('click', (clickedElem) => {
-            let details = element.parentNode;
-            details.classList.remove('show');
-            overlay.classList.remove('show');
-            document.body.style.overflow = '';
-        });
-    });
-</script>
 {% endblock %}

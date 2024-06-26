@@ -26,6 +26,29 @@
                 <p><span>&#9786;&#xFE0E;</span>site made by <a href="https://quinntenor.io">quinn tenorio</a></p>
                 <a href="#">[top]</a>
             </footer>
+
+            <div class="modal-overlay" aria-hidden="true"></div>
         </main>
     </body>
+    <script>
+        const cocktailButtons = document.querySelectorAll('.open-details');
+        const closeButtons = document.querySelectorAll('.cocktail-details .close');
+        const overlay = document.querySelector('.modal-overlay');
+        cocktailButtons.forEach((element) => {
+            element.addEventListener('click', (clickedElem) => {
+                let details = element.closest('.cocktail').getElementsByClassName('cocktail-details')[0];
+                details.classList.add('show');
+                overlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        closeButtons.forEach((element) => {
+            element.addEventListener('click', (clickedElem) => {
+                let details = element.parentNode;
+                details.classList.remove('show');
+                overlay.classList.remove('show');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
 </html>

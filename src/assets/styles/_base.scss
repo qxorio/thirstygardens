@@ -74,7 +74,8 @@ body {
         }
     }
 
-    & ol {
+    & .cocktail-details ol:not(.ingredients),
+    .cocktail-details ul:not(.ingredients) {
         & li {
             padding-left: 1ch;
             position: relative;
@@ -155,17 +156,23 @@ body {
         position: relative;
         font-size: 1rem;
 
+        & a,
+        p {
+            font-size: 1rem;
+        }
+
         & a {
             color: #000000;
         }
 
         & p {
             margin-bottom: 0.65rem;
+
             & span {
                 font-style: normal;
                 margin-bottom: 0.25rem;
                 display: block;
-                font-size: 1.25rem;
+                font-size: 1.125rem;
             }
         }
     }
@@ -204,6 +211,7 @@ body {
         & .contents {
             overflow-y: scroll;
             max-height: 32rem;
+            width: 100%;
 
             & h4 {
                 margin: 0 0 1rem;
@@ -216,9 +224,23 @@ body {
                 font-style: normal;
             }
 
-            & ul {
-                & li {
-                }
+            & .divider {
+                height: 0.625rem;
+                width: 100%;
+                display: inline-block;
+                background-color: #ffffff;
+                margin: 1.25rem 0 0.75rem;
+                --mask: radial-gradient(
+                            8px at 50% calc(100% + 3px),
+                            #0000 calc(99% - 2px),
+                            #000 calc(101% - 2px) 99%,
+                            #0000 101%
+                        )
+                        calc(50% - 12px) calc(50% - 4px + 0.5px) / 24px 8px repeat-x,
+                    radial-gradient(8px at 50% -3.6px, #0000 calc(99% - 2px), #000 calc(101% - 2px) 99%, #0000 101%) 50%
+                        calc(50% + 4px) / 24px 8px repeat-x;
+                -webkit-mask: var(--mask);
+                mask: var(--mask);
             }
         }
 

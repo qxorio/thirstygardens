@@ -39,21 +39,21 @@
                 mask: var(--mask);
             }
         }
+    }
 
-        & h4 {
-            margin-bottom: 0.25rem;
-        }
+    & h4 {
+        margin-bottom: 0.25rem;
+    }
 
-        & ul {
-            margin: 0;
+    & ul {
+        margin: 0;
 
-            & li:not(.ingredient) {
-                display: block;
-                margin-bottom: 1.5rem;
+        & li:has(h4.inline-heading) {
+            display: block;
+            margin-bottom: 1.5rem;
 
-                & p {
-                    margin: 0 0 0.375rem;
-                }
+            & p {
+                margin: 0 0 0.375rem;
             }
         }
     }

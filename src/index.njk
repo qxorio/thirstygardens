@@ -27,23 +27,35 @@
             {% endif %}
         </div>
         <div class="info">
-            <h2 class="lower">{{ cocktail.name }}</h2>
+            <button class="open-details"><h2 class="lower">{{ cocktail.name }}</h2></button>
             <p>{{ cocktail.flavors }}</p>
         </div>
-        <div class="details" aria-hidden="true" style="display: none;">
-            <ul>
-                {% for ingredient in cocktail.ingredients %}
-                <li>
-                    <span class="measure">{{ ingredient.measure }}</span> <span class="ingredient">{{ ingredient.name }}</span>
-                </li>
-                {% endfor %}
-            </ul>
-            <span class="divider" aria-hidden="true"></span>
-            <ol>
-                {% for instruction in cocktail.instructions %}
-                <li>{{ instruction }}</li>
-                {% endfor %}
-            </ol>
+        <div class="cocktail-details">
+            <div class="contents">
+                <h4 class="lower">{{ cocktail.name }}</h4>
+                <ul class="ingredients">
+                    {% for ingredient in cocktail.ingredients %}
+                    <li class="ingredient">
+                        <span class="measure">{{ ingredient.measure }}</span> <span class="ingredient">{{ ingredient.name }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <span class="divider" aria-hidden="true"></span>
+                <ol>
+                    {% for instruction in cocktail.instructions %}
+                    <li>{{ instruction }}</li>
+                    {% endfor %}
+                </ol>
+                {% if cocktail.notes %}
+                <span class="divider" aria-hidden="true"></span>
+                <ol>
+                    {% for note in cocktail.notes %}
+                    <li>{{ note }}</li>
+                    {% endfor %}
+                </ol>
+                {% endif %}
+            </div>
+            <button class="close"><p class="lower">Close</p></button>
         </div>
     </section>
 {% endfor %}
