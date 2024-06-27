@@ -31,6 +31,7 @@
         </main>
     </body>
     <script>
+        let wakeLock = null;
         const cocktailButtons = document.querySelectorAll('.open-details');
         const closeButtons = document.querySelectorAll('.cocktail-details .close');
         const overlay = document.querySelector('.modal-overlay');
@@ -40,6 +41,7 @@
                 details.classList.add('show');
                 overlay.classList.add('show');
                 document.body.style.overflow = 'hidden';
+                toggleWake();
             });
         });
         closeButtons.forEach((element) => {
@@ -48,7 +50,17 @@
                 details.classList.remove('show');
                 overlay.classList.remove('show');
                 document.body.style.overflow = '';
+                toggleWake();
             });
         });
+
+        async function toggleWake() {
+            if (wakeLock === null) {
+                wakeLock = await navigator.wakeLock.request("screen");
+            } else {
+                wakeLock.release();
+                wakeLock = null;
+            }
+        }
     </script>
 </html>
