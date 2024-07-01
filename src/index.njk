@@ -29,6 +29,9 @@
         <div class="info">
             <button class="open-details"><h2 class="lower">{{ cocktail.name }}</h2></button>
             <p>{{ cocktail.flavors }}</p>
+            {% if cocktail.allergens %}
+            <p class="allergens">{a} {{ cocktail.allergens }}</p>
+            {% endif %}
         </div>
         <div class="cocktail-details">
             <div class="contents">

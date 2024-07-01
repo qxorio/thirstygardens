@@ -32,6 +32,10 @@ module.exports = async () => {
                 flavors: cocktail.properties.Flavors.rich_text[0].plain_text,
                 imageUrl: cocktail.properties.Image.rich_text[0].plain_text,
                 isNew: cocktail.properties.New.checkbox,
+                allergens:
+                    cocktail.properties.Allergens.rich_text.length !== 0
+                        ? cocktail.properties.Allergens.rich_text[0].plain_text
+                        : null,
                 ingredients: cocktail.ingredients,
                 instructions: cocktail.instructions,
                 notes: cocktail.notes,
