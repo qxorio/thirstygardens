@@ -48,6 +48,7 @@ eleventyComputed:
             <div class="cocktail-details">
                 <div class="contents">
                     <h4 class="lower">{{ cocktail.name }}</h4>
+                    <div class="head-with-hr"><h5 class="lower">Ingredients</h5></div>
                     <ul class="ingredients">
                         {% for ingredient in cocktail.ingredients %}
                         <li class="ingredient">
@@ -55,14 +56,14 @@ eleventyComputed:
                         </li>
                         {% endfor %}
                     </ul>
-                    <span class="divider" aria-hidden="true"></span>
+                    <div class="head-with-hr"><h5 class="lower">Instructions</h5></div>
                     <ol>
                         {% for instruction in cocktail.instructions %}
                         <li>{{ instruction }}</li>
                         {% endfor %}
                     </ol>
                     {% if cocktail.notes %}
-                    <span class="divider" aria-hidden="true"></span>
+                    <div class="head-with-hr"><h5 class="lower">Notes</h5></div>
                     <ol>
                         {% for note in cocktail.notes %}
                         <li>{{ note }}</li>

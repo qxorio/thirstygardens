@@ -3,8 +3,9 @@
 {% set index = true %}
 
 {% block intro %}
+<h2 class="lower">Creations</h2>
 <p class="backstory">
-    <span>Thirsty Gardens</span> was first borne out of a months long journey to recreate a mystery
+    <span class="lower">Thirsty Gardens</span> was first borne out of a months long journey to recreate a mystery
     cocktail at one of Seattle's most famous bars. The menu showcases cocktails that use overlooked
     &amp; surprising ingredients in addition to more simple fare. As more libations are dreamt up by
     Quinn, they will be added below. Enjoy.
@@ -35,7 +36,8 @@
         </div>
         <div class="cocktail-details">
             <div class="contents">
-                <h4 class="lower">{{ cocktail.name }}</h4>
+                <h3 class="lower">{{ cocktail.name }}</h3>
+                <div class="head-with-hr"><h4 class="lower">Ingredients</h4></div>
                 <ul class="ingredients">
                     {% for ingredient in cocktail.ingredients %}
                     <li class="ingredient">
@@ -43,14 +45,14 @@
                     </li>
                     {% endfor %}
                 </ul>
-                <span class="divider" aria-hidden="true"></span>
+                <div class="head-with-hr"><h4 class="lower">Instructions</h4></div>
                 <ol>
                     {% for instruction in cocktail.instructions %}
                     <li>{{ instruction }}</li>
                     {% endfor %}
                 </ol>
                 {% if cocktail.notes %}
-                <span class="divider" aria-hidden="true"></span>
+                <div class="head-with-hr"><h4 class="lower">Notes</h4></div>
                 <ol>
                     {% for note in cocktail.notes %}
                     <li>{{ note }}</li>

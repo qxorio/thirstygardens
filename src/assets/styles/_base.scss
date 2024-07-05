@@ -9,13 +9,14 @@ body {
     h2,
     h3,
     h4,
-    a {
+    h5 a {
         font-family: "Vulf Mono", sans-serif;
         font-style: italic;
         font-weight: 300;
         font-size: 1.125rem;
         line-height: 1.375;
         letter-spacing: -0.04rem;
+        font-variant-numeric: diagonal-fractions;
     }
 
     @include headings {
@@ -39,6 +40,11 @@ body {
 
     & h4 {
         font-size: 1.25rem;
+        margin: calc(0.875rem / 2) 0 0.875rem;
+    }
+
+    & h5 {
+        font-size: 1rem;
         margin: calc(0.875rem / 2) 0 0.875rem;
     }
 
@@ -114,10 +120,15 @@ body {
             margin: 1.75rem 0;
             display: flex;
             flex-direction: column;
-            align-items: end;
+            align-items: center;
 
             & h2 {
                 text-align: center;
+            }
+
+            & p {
+                text-align: justify;
+                margin: 0;
             }
         }
 
@@ -186,7 +197,7 @@ body {
     }
 
     & .cocktail-details {
-        width: min(calc(100% - 7rem), 34rem);
+        width: min(calc(100% - 6rem), 34rem);
         max-height: 32rem;
         background-color: #000000;
         border-radius: 1.5rem;
@@ -217,10 +228,6 @@ body {
             max-height: 32rem;
             width: 100%;
 
-            & h4 {
-                margin: 0 0 1rem;
-            }
-
             & .measure {
                 font-variant-numeric: diagonal-fractions;
                 display: inline-block;
@@ -228,23 +235,37 @@ body {
                 font-style: normal;
             }
 
-            & .divider {
-                height: 0.625rem;
-                width: 100%;
-                display: inline-block;
-                background-color: #ffffff;
-                margin: 1.25rem 0 0.75rem;
-                --mask: radial-gradient(
-                            8px at 50% calc(100% + 3px),
-                            #0000 calc(99% - 2px),
-                            #000 calc(101% - 2px) 99%,
-                            #0000 101%
-                        )
-                        calc(50% - 12px) calc(50% - 4px + 0.5px) / 24px 8px repeat-x,
-                    radial-gradient(8px at 50% -3.6px, #0000 calc(99% - 2px), #000 calc(101% - 2px) 99%, #0000 101%) 50%
-                        calc(50% + 4px) / 24px 8px repeat-x;
-                -webkit-mask: var(--mask);
-                mask: var(--mask);
+            & .head-with-hr {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin: 0.5rem 0 0.25rem;
+
+                & h4,
+                h5 {
+                    text-wrap: nowrap;
+                    margin: 0;
+                }
+
+                &::after {
+                    content: "";
+                    height: 0.625rem;
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #ffffff;
+                    margin: 0.75rem 0 0.5rem;
+                    --mask: radial-gradient(
+                                8px at 50% calc(100% + 3px),
+                                #0000 calc(99% - 2px),
+                                #000 calc(101% - 2px) 99%,
+                                #0000 101%
+                            )
+                            calc(50% - 12px) calc(50% - 4px + 0.5px) / 24px 8px repeat-x,
+                        radial-gradient(8px at 50% -3.6px, #0000 calc(99% - 2px), #000 calc(101% - 2px) 99%, #0000 101%)
+                            50% calc(50% + 4px) / 24px 8px repeat-x;
+                    -webkit-mask: var(--mask);
+                    mask: var(--mask);
+                }
             }
         }
 

@@ -1,10 +1,4 @@
 .daily-harvest {
-    & .intro {
-        display: block;
-        flex-direction: unset;
-        align-items: unset;
-    }
-
     & section {
         margin: 3rem 0;
 
@@ -37,6 +31,14 @@
                         calc(50% + 4px) / 24px 8px repeat-x;
                 -webkit-mask: var(--mask);
                 mask: var(--mask);
+            }
+        }
+    }
+
+    & .cocktail-details {
+        & .contents {
+            & h4 {
+                margin: 0 0 1rem;
             }
         }
     }
